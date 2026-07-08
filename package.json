@@ -1,0 +1,43 @@
+{
+  "name": "fm-remix-forge-studio",
+  "version": "85.1.0",
+  "private": true,
+  "description": "FM Remix Forge Studio - real working MVP audio/remix base fixed build and generation",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "check": "node scripts/check-project.cjs",
+    "typecheck": "echo TypeScript not used in V85 vanilla build",
+    "dist:win": "npm run build && electron-builder --win nsis --x64 --publish never"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest"
+  },
+  "build": {
+    "appId": "com.fm.remixforge",
+    "productName": "FM Remix Forge Studio",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "asar": true,
+    "artifactName": "FM-Remix-Forge-Studio-V${version}-${os}-${arch}.${ext}"
+  },
+  "author": "FM"
+}
